@@ -1,3 +1,4 @@
+.tooling-project
 # Java defaults (https://github.com/github/gitignore/blob/main/Java.gitignore) #
 # --- #
 *.class
@@ -38,6 +39,7 @@ local.properties
 flows/
 target/
 **/*.mflow
+.mule/
 # maven
 .mvn/
 # vscode
