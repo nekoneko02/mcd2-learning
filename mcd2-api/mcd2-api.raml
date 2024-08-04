@@ -1,0 +1,77 @@
+#%RAML 1.0
+title: mcd2-api
+
+baseUri: api
+
+types:
+  ValidationData: !include dataTypes/ValidationData.raml
+  ValidationRes: 
+traits:
+  ValidationSpec: !include traits/ValidationSpec.raml
+  CorrelationIdSpec: !include traits/CorrelationIdSpec.raml
+  CustomPolicySpec: !include traits/CustomPolicySpec.raml
+  CustomModuleSpec: !include traits/CustomModuleSpec.raml
+  TlsSpec: !include traits/TlsSpec.raml
+
+/validation:
+  displayName: validation
+  description: learning about validation module
+  /all:
+    post:
+      is: ValidationSpec
+    /with-error-mapping:
+      post:
+        is: ValidationSpec
+  /any:
+    post:
+      is: ValidationSpec
+  /java-schema:
+    post:
+      is: ValidationSpec
+/secure:
+  get:
+    queryParameters:
+      key: 
+        description: |
+          specify key of secure property.
+          secure::key is valid
+          key is invalid
+        type: string
+    responses:
+      200:
+        body:
+          application/json:
+            type: string
+            example: value of secure property
+/correlation-id:
+  get:
+    is: CorrelationIdSpec
+  /customize-id:
+    get:
+      is: CorrelationIdSpec
+  /reponse-header:
+    get:
+      is: CorrelationIdSpec
+/custom-policy:
+  get:
+    is: CustomPolicySpec
+  /with-error:
+    get:
+      is: CustomPolicySpec
+/custom-module:
+  /xml-sdk:
+    get:
+      is: CustomModuleSpec
+  /java-sdk:
+    get:
+      is: CustomModuleSpec
+/tls:
+  /https-listener:
+    get:
+      is: TlsSpec
+  /mutual-listener:
+    get:
+      is: TlsSpec
+  /request:
+    get:
+      is: TlsSpec
