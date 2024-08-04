@@ -1,0 +1,11 @@
+#%RAML 1.0 Trait
+
+usage: "common specification of validation endpoints"
+body:
+  application/json:
+    type: ValidationData
+responses:
+  200:
+    body:
+      application/json:
+        type: ValidationRes

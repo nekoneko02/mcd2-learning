@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "apiVersion": "v1",
+  "descriptorVersion": "1.0.0",
+  "classifier": "raml",
+  "main": "mcd2-api.raml",
+  "assetId": "mcd2-api",
+  "groupId": "54054fd8-4639-4db2-a462-87ce1d04422c",
+  "organizationId": "54054fd8-4639-4db2-a462-87ce1d04422c",
+  "name": "mcd2-api"
+}
